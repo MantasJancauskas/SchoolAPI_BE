@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('birth_day');
             $table->string('name');
             $table->integer('class');
-            $table->foreignId('children_id')->nullable()->references('id')->on('schools')
+            $table->integer('grade');
+            $table->foreignId('school_id')->nullable()->references('id')->on('schools')
                     ->onDelete('set Null')
                     ->onUpdate('restrict');
             $table->timestamps();
