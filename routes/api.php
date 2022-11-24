@@ -20,4 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/school', fn() => School::all());
+
+Route::post('/register', [ApiAuthController::class, 'register']);
+Route::post('/login', [ApiAuthController::class, 'login']);
+Route::post('/logout', [ApiAuthController::class, 'logout'])->middleware('auth:sanctum');;
+
+
+Route::get('/school', [SchoolController::class]);
+Route::get('/aplication', [ChildrenAplicationController::class]);
